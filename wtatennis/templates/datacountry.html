@@ -1,0 +1,66 @@
+$def with(infos, xlabel, ylabel, ylabel1, xlabel2, ylabel2)
+$code
+        dot = '.png'
+        high_rank = '-'
+        highrank_dt = ''
+        if infos[5]:
+            high_rank = infos[5][0]['HIGHRANK']
+<div class="main container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">国家简介</h3>
+                </div>
+                <div class="panel-body" style="min-height: 250px;">
+                    <img style="float:left;" src="http://wtatennis-flag.stor.sinaapp.com/$infos[6]$dot" width="300">
+                    <div style="position:absolute;left:340px;top:30px;">
+                        <h3><span class="number">$infos[0]</span><span class="txt">历史上举办过$infos[0]项赛事</span></h3>
+                        <h3><span class="number">$infos[1]</span><span class="txt">当前仍在举办$infos[1]项赛事</span></h3>
+                        <h3><span class="number">$infos[2]</span><span class="txt">历史上共有$infos[2]位职业球员</span></h3>
+                        <h3><span class="number">$infos[3]</span><span class="txt">当前仍有$infos[3]位职业球员</span></h3>
+                        <h3><span class="number">$high_rank</span><span class="txt">历史最高排名
+                            $if high_rank != '-':
+                                是由$infos[5][0]['CH_NAME']于$infos[5][0]['HIGHRANKDATE']年创造的NO. $high_rank
+                        </span></h3>
+                    </div>
+                    <div style="position:absolute;right:20px;top:40px;">
+                        $for p in infos[5]:
+                            <a title='$p["CH_NAME"]' href='/timeline?player=$p["PLAYERID"]'><img src='http://www.wtatennis.com$p["PHOTO"]' width="83" height="110"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">球员最高排名走势</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="canvas" height="250" width="1100"></canvas>
+                    <span id="chart1_x" style="display:none">$xlabel</span>
+                    <span id="chart1_y" style="display:none">$ylabel</span>
+                    <span id="chart2_y" style="display:none">$ylabel1</span>
+                    <span id="chart3_x" style="display:none">$xlabel2</span>
+                    <span id="chart3_y" style="display:none">$ylabel2</span>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">球员参赛数量走势</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="canvas1" height="250" width="1100"></canvas>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Top100球员数量走势</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="canvas2" height="250" width="1100"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="/static/js/datacountry.js"></script>

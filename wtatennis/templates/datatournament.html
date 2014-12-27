@@ -1,0 +1,70 @@
+$def with(infos)
+$code
+        dot = '.jpg'
+        dot1 = '.png'
+		dot2 = '.mp3'
+<div class="main container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">赛事简介</h3>
+                </div>
+                <div class="panel-body" style="min-height: 250px;">
+                    <img style="float:left;" src="http://wtatennis-city.stor.sinaapp.com/$infos[5]$dot" width="300">
+                    <div style="position:absolute;left:340px;top:30px;">
+                        <h3><span class="number">$infos[0]</span><span class="txt">已成功举办过$infos[0]届</span></h3>
+                        <h3><span class="number">$infos[1]</span><span class="txt">共诞生$infos[1]位冠军.</span></h3>
+                        <h3><span class="number">$infos[4]</span><span class="txt">冠军共来自$infos[4]个国家和地区</span></h3>
+                        <h3><span class="number">$infos[2]</span><span class="txt">$infos[3]获得过$infos[2]次冠军</span></h3>
+                    </div>
+                    <div style="position:absolute;right:20px;top:40px;">
+                        $for p in infos[6]:
+                            <a title='$p["CH_NAME"]' href='/timeline?player=$p["PLAYERID"]'><img src='http://www.wtatennis.com$p["PHOTO"]' width="83" height="110"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">赛事奖金走势</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="canvas" height="250" width="1100"></canvas>
+                    <span id="chart1_x" style="display:none">$infos[7]</span>
+                    <span id="chart1_y" style="display:none">$infos[8]</span>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">历届冠军</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped" style="width:40%; float:left; margin-left:50px;">
+                        <thead><tr><td>年份</td><td>冠军</td><td>国家</td></tr></thead>
+                        <tbody>
+                        $for p in infos[-1][:len(infos[-1])/2]:
+                            <tr>
+                                <td>$p["YEAR"]</td>
+                                <td><a href='/timeline?player=$p["PLAYERID"]'>$p["CH_NAME"]</a></td>
+                                <td><a href='/data?country=$p["COUNTRY"]'><img height="20" src='http://wtatennis-flag.stor.sinaapp.com/$p["ABB"]$dot1'></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped" style="width:40%; position:relative; left:50px;">
+                        <thead><tr><td>年份</td><td>冠军</td><td>国家</td></tr></thead>
+                        <tbody>
+                        $for p in infos[-1][len(infos[-1])/2:]:
+                            <tr>
+                                <td>$p["YEAR"]</td>
+                                <td><a href='/timeline?player=$p["PLAYERID"]'>$p["CH_NAME"]</a></td>
+                                <td><a href='/data?country=$p["COUNTRY"]'><img height="20" src='http://wtatennis-flag.stor.sinaapp.com/$p["ABB"]$dot1'></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="/static/js/datatournament.js"></script>

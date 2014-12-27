@@ -1,0 +1,98 @@
+$def with(top_popular_players, top_points_players, top_champion_players)
+<div class="main container">
+    <div class="container">
+        <div id="slides" style="margin-left:-20px;">
+            <img src="http://wtatennis-banner.stor.sinaapp.com/banner1.jpg" alt="...">
+            <img src="http://wtatennis-banner.stor.sinaapp.com/banner2.jpg" alt="...">
+            <img src="http://wtatennis-banner.stor.sinaapp.com/banner3.jpg" alt="...">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">热门帖子</h3>
+                </div>
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">热门球员</h3>
+                </div>
+                <div class="panel-body">
+                    $for player in top_popular_players:
+                        <a href="timeline?player=$player.PLAYERID" style="display: inline-block;">
+                            <img title="$player.CH_NAME" src="http://www.wtatennis.com$player.PHOTO" width="60" height="80" style="margin:5px">
+                        </a>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">积分排名(截止到2014.5.19)</h3>
+                </div>
+                <div class="panel-body">
+                    $for player in top_points_players:
+                        <div class="rank-photo">
+                            <a href="/timeline?player=$player.PLAYERID">
+                                <img title="$player.CH_NAME" src="http://www.wtatennis.com$player.PHOTO" width="60" height="80"/>
+                                <span class="bg">$player.CURRENTRANK</span>
+                            </a>
+                        </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Road To Singapore</h3>
+                </div>
+                <div class="panel-body">
+                    $for i, player in enumerate(top_champion_players):
+                        <div class="rank-photo">
+                            <a href="/timeline?player=$player.PLAYERID">
+                                <img title="$player.CH_NAME" src="http://www.wtatennis.com$player.PHOTO" width="60" height="80"/>
+                                <span class="bg">$(i+1)</span>
+                            </a>
+                        </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">热心直播员</h3>
+                </div>
+                <div class="panel-body">
+                    <dl class="rank-dl">
+                        <dt class="rank-photo" style='float: left;'>
+                            <a href="/">
+                                <img src="http://www.wtatennis.com/namedImage/12781/player_120330.jpg" width="60" height="80"/>
+                                <span class="bg">1</span>
+                            </a>
+                            <span></span>
+                        </dt>
+                        <dd class="rank-info">
+                            <span>已直播 10 场比赛</span>
+                            <p>评分：5</p>
+                        </dd>
+                    </dl>
+                    <dl class="rank-dl">
+                        <dt class="rank-photo" style='float: left;'>
+                            <a href="/">
+                                <img src="http://www.wtatennis.com/namedImage/12781/player_120330.jpg" width="60" height="80"/>
+                                <span class="bg">1</span>
+                            </a>
+                            <span></span>
+                        </dt>
+                        <dd class="rank-info">
+                            <span>已直播 10 场比赛</span>
+                            <p>评分：5</p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugins/jquery.slides.min.js"></script>
+<script src="/static/js/index.js"></script>

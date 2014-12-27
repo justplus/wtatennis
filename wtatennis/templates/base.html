@@ -1,0 +1,71 @@
+$def with(content)
+$code
+        navs = [''] * 7
+        navs[session.nav_index] = "active"
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>我爱网球圈 — wtacircle</title>
+        <link rel="icon" href="http://wtatennis.sinaapp.com/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="http://wtatennis.sinaapp.com/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/plugins/upload/jquery.fileupload.css">
+        <link rel="stylesheet" href="/static/css/base.css">
+        <script src="/static/plugins/jquery/jquery-1.11.1.min.js"></script>
+        <script src="/static/plugins/bootstrap/js/bootstrap.js"></script>
+        <script src="/static/plugins/chart/Chart.min.js"></script>
+    </head>
+    <body>
+        <div id="body-bg">
+            <img src="/static/images/background.jpg">
+        </div>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-collapse collapse" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <li class="$navs[0]"><a href="/" >首页</a></li>
+                        <li class="$navs[1]"><a href="/live" >图文直播</a></li>
+                        <li class="$navs[2]"><a href="/timeline" >时间轴</a></li>
+                        <li class="$navs[3]"><a href="/data" >数据堂</a></li>
+                        <li class="$navs[4]"><a href="/" >网球周边</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        $if not session.login:
+                            <li class="$navs[5]"><a href="/account/signup" >注册</a></li>
+                            <li class="$navs[6]"><a href="/account/signin" >登入</a></li>
+                        $else:
+                            <li><img src="$session.user['PHOTO']" width="50" height="50" alt="..." class="img-circle"></li>
+                            <li class="dropdown">
+
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">$session.user['NICKNAME'] <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <!--<li class="divider"></li>-->
+                                    <li><a href="/account/live"><span class="glyphicon glyphicon-ok-circle"></span> 我的直播</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/account/setting"><span class="glyphicon glyphicon-user"></span> 设置</a></li>
+                                    <li><a href="/account/signout"><span class="glyphicon glyphicon-off"></span> 登出</a></li>
+                                </ul>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="wrap">
+            $:content
+        </div>
+        <footer id="footer">
+          <div class="container clearfix">
+            <div class="text-muted pull-left">
+              <a href="/about">关于</a>
+              <span class="sep">•</span>
+              <a href="/author">作者</a>
+            </div>
+            <p class="muted credit pull-right">
+            ©<time datetime="2014-04-08 06:39:49.714022">2014</time> WTA Circle. All rights reserved.
+            </p>
+          </div>
+        </footer>
+    </body>
+</html>

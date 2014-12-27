@@ -1,0 +1,81 @@
+$def with(province_list, default_city_list, province_name, city_name)
+<div class="main container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">编辑个人信息</h3>
+                </div>
+                <div class="form-horizontal panel-body">
+                    <div class="form-group ">
+                        <label class="col-sm-2 control-label" for="screen_name">显示名称</label>
+                        <div class="col-sm-10">
+                            <input disabled class="form-control" id="screen_name" name="screen_name" type="text" value="$session.user['NICKNAME']">
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="col-sm-2 control-label" for="email">邮箱</label>
+                        <div class="col-sm-10">
+                            <input disabled class="form-control" id="email" name="email" value="$session.user['EMAIL']">
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="col-sm-2 control-label">城市</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" style="width:40%; margin-right:10px; float:left;" id="prov-select">
+                                $for i in province_list:
+                                    $if i == province_name:
+                                        <option selected>$i</option>
+                                    $else:
+                                        <option>$i</option>
+                            </select>
+                            <select class="form-control" style="width:40%;" id="city-select">
+                                $for i in default_city_list:
+                                    $if i == city_name:
+                                        <option selected>$i</option>
+                                    $else:
+                                        <option>$i</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="col-sm-2 control-label" for="description">头像</label>
+                        <div class="col-sm-3">
+                            <img src="$session.user['PHOTO']" width="140" height="140" alt="..." class="img-circle">
+                        </div>
+                        <div class="col-sm-4" style="margin-top: 50px;">
+                            <span class="btn btn-success fileinput-button">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                <span>选择图片...</span>
+                                <input id="fileupload" type="file" name="u_file" data-url="/setting/upload">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="col-sm-2 control-label" for="description">简介</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="description" name="description" placeholder="你是谁的粉丝？">$session.user['INTRODUCE']</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-1">
+                            <button class="btn btn-primary" id="update">更新</button>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="alert alert-success" style="padding: 8px;display:none;text-align:center;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugins/upload/jquery.ui.widget.js"></script>
+<script src="/static/plugins/upload/jquery.iframe-transport.js"></script>
+<script src="/static/plugins/upload/jquery.fileupload.js"></script>
+<script src="/static/js/user.js"></script>

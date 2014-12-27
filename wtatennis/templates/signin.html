@@ -1,0 +1,24 @@
+<div class="main container">
+	<div class="panel panel-default single" style="margin-top:100px;">
+		<div class="panel-body">
+		    <h2>登入</h2>
+			<div class="form-group ">
+		        <label for="email">邮箱</label>
+		        <input class="form-control" id="email" name="email" type="text" value="">
+	        </div>
+			<div class="form-group ">
+		        <label for="password">密码</label>
+		        <input class="form-control" id="password" name="password" type="password" value="">
+	        </div>
+		    <div class="form-group">
+			    <input id="permanent" name="permanent" type="checkbox" value="y"> <label for="permanent">一周内免登录。</label>
+		    </div>
+            <div class="alert alert-error" style="padding: 8px;display:none;"></div>
+		    <div class="form-group">
+			    <button class="btn btn-primary" id="login">登入</button>
+			    <a class="btn btn-link" href="/account/find">忘记密码？</a>
+		    </div>
+		</div>
+	</div>
+</div>
+<script src="/static/js/user.js"></script>

@@ -1,0 +1,39 @@
+$def with(top_champion_players)
+<div class="main container">
+    <div class="row" style="margin-top:100px;">
+        <div class="col-lg-6 col-md-offset-3">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="请输入球员姓名" id="search_box">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="search-btn">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:60px;">
+        <div class="col-lg-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">热搜榜</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="rank-photo top-photo">
+                        <a href="/timeline?player=top30" style="width: 120px;">
+                            <img title="top30" src="/static/images/top30.jpg" width="120" height="170"/>
+                            <span class="bg">1</span>
+                        </a>
+                    </div>
+                    $for i, player in enumerate(top_champion_players):
+                        <div class="rank-photo">
+                            <a href="/timeline?player=$player.PLAYERID">
+                                <img title="$player.CH_NAME" src="http://www.wtatennis.com$player.PHOTO" width="60" height="80"/>
+                                <span class="bg">$(i+2)</span>
+                            </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/plugins/bootstrap.autocomplete.js"></script>
+<script src="/static/js/p-timeline.js"></script>

@@ -1,0 +1,14 @@
+$def with(player_json)
+    <div id="timeline-embed"></div>
+  <script type="text/javascript">
+    var timeline_config = {
+     width: "100%",
+     height: "550",
+     source: $:player_json,
+     lang: 'zh-cn',
+     debug: true
+    };
+  </script>
+  <script type="text/javascript" src="/static/plugins/timelinejs/js/storyjs-embed.js"></script>
+
+

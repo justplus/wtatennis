@@ -1,0 +1,22 @@
+$def with()
+<div class="main container">
+    <div class="row" style="margin-top:100px;">
+        <div class="col-lg-5 col-md-offset-3">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="请输入球员姓名、赛事名称或者国家名称" id="search_box">
+
+                <span class="input-group-btn">
+                    <select  id="search_type" class="form-control" style="border-radius: 0px;margin-left:-1px;">
+                          <option>球员</option>
+                          <option>赛事</option>
+                          <option>国家</option>
+                        </select>
+                    <button class="btn btn-default" type="button" id="search-btn">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/static/plugins/bootstrap.autocomplete.js"></script>
+<script src="/static/js/data.js"></script>

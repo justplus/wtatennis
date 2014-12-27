@@ -1,0 +1,110 @@
+$def with(player_json)
+<style type="text/css">
+ul,li{ list-style-type:none;}
+#con{ clear:both; height:400px; margin:30px auto 10px auto; position:relative; border:1px #d3d3d3 solid; background-color:#fff; overflow:hidden; overflow-y:scroll}
+#con ul{ position:absolute; margin:10px; top:0; left:0; padding:0;}
+#con ul li{ width:100%;  border-bottom:1px #ccc dotted; padding:20px 0; overflow:hidden; }
+#con ul li a.face{ float:left; width:50px; height:50px; margin-top:2px; padding:2px;}
+#con ul li h4{height:22px; line-height:22px; margin-left:60px}
+#con ul li p{ margin-left:60px;line-height:22px; }
+.table > tbody > tr > td{border-top:1px solid rgba(255, 255, 255, 0);}
+</style>
+<div class="main container">
+    <div id="main">
+    <!--<h4 class="top_title">
+        <a href="http://www.helloweba.com/view-blog-223.html">jQuery实现的向下推送图文信息滚动效果</a>
+    </h4>-->
+        <div class="row">
+            <div class="col-md-4">
+                <table class="table mlive">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="http://wtatennis-flag.stor.sinaapp.com/cn.png" width="30">
+                            </td>
+                            <td style="max-width: 140px; white-space: nowrap;">李娜(Na Li)</td>
+                            <td>
+                                <input type="text" class="form-control set" value="0"/>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control game" value="0"/>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control point" value="0"/>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" onclick="win()"><img src="/static/images/tick.png"/></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="http://wtatennis-flag.stor.sinaapp.com/cn.png" width="30">
+                            </td>
+                            <td style="max-width: 140px; white-space: nowrap;">李娜(Na Li)</td>
+                            <td>
+                                <input type="text" class="form-control set" value="0"/>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control game" value="0"/>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control point" value="0"/>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" onclick="win()"><img src="/static/images/tick.png"/></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <textarea class="form-control" style="height:90px;"></textarea>
+            </div>
+            <div class="col-md-2">
+                <button class="btn" type="button" style="margin:8px 0;">插入图片</button>
+                <button class="btn btn-success" type="button" style="margin:8px 0;">发送消息</button>
+            </div>
+        </div>
+    <div id="con">
+        <ul>
+            <li> <a href="#" class="face"><img src="http://tp3.sinaimg.cn/1197161814/50/1290146312/1" /></a>
+            <h4><a href="#">李开复</a></h4>
+            <p>【领导力的四个境界】境界一：员工因为你的职位而服从你；境界二：员工因为你的能力而服从你；境界三：员工因为你的培养而服从你，他们感恩于你对他们的尊重、培养和付出；境界四：员工因为你的为人、魅力、风范、价值观而拥戴你。（转）</p>
+            </li>
+            <li> <a href="#" class="face"><img src="http://tp4.sinaimg.cn/1788911247/50/40008507892/1" /></a>
+            <h4><a href="#">谷大白话</a></h4>
+            <p>「问」"我的小伙伴们"用英文怎么说？「答」My Little Good Buddies, 简称MLGB。</p>
+            </li>
+            <li> <a href="#" class="face"><img src="http://tp1.sinaimg.cn/1161257652/50/1285809118/1" /></a>
+            <h4><a href="#">月光光WEB</a></h4>
+            <p>最难过的，莫过于当你遇上一个特别的人，却明白永远不可能在一起，或迟或早，你不得不放弃。[转]</p>
+            </li>
+            <li> <a href="#" class="face"><img src="http://tp3.sinaimg.cn/1601563722/50/5597516188/1" /></a>
+            <h4><a href="#">陆琪</a></h4>
+            <p>在这世上，没有一辈子接你上下班的男人，更没有一辈子不对你说谎的男人。但确实会有一辈子陪着你，不离开你的男人。要记住，只要是人，就会松懈、懒惰、有缺点。千万别对人抱着不可能实现的期望。男人有多好，就看你的期望有多低。期待少一些，惊喜才会多一点。——陆琪（上帝保佑，大家晚安）</p>
+            </li>
+        </ul>
+    </div>
+    $:player_json
+    <!--<div style="background: #fff;padding: 10px;">
+   <div id="SOHUCS"></div>
+   </div>-->
+   </div>
+</div>
+
+<script type="text/javascript" src="/static/plugins/jquery.corner.js"></script>
+<script type="text/javascript" src="/static/js/live.js"></script>
+<!--<script>
+  (function(){
+    var appid = 'cyrbH0G33',
+    conf = 'prod_f87b22f64662b08c0088d4d7d93c7aad';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>-->
